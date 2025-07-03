@@ -1,50 +1,50 @@
-🚀 Asteroid X
+### 🚀 Asteroid X
 
-Asteroid X é um jogo 2D desenvolvido em Python com Pygame, inspirado nos clássicos arcade como Asteroids. Controle uma nave no espaço, destrua asteroides que se dividem em pedaços menores e tente sobreviver o máximo possível enquanto acumula pontos.
-
-
-🎮 Objetivo
-
-Destruir asteroides
-
-Sobreviver sem colidir
-
-Marcar o maior score e entrar no TOP 10
+Asteroid X is a 2D game developed in Python using Pygame, inspired by classic arcade games like Asteroids. Control a spaceship in space, destroy asteroids that split into smaller pieces, and try to survive as long as possible while racking up points.
 
 
+### 🎮 Objective
 
-🛠️ Tecnologias Utilizadas
+Destroy asteroids
+
+Survive without crashing
+
+Score as high as possible and make it into the TOP 10
+
+
+### 🛠️ Tecnologias Utilizadas
 
 Python 3.x
 
 Pygame
 
-SQLite (Ranking de Pontuação)
+SQLite (Score Ranking)
 
-Krita (Edição de sprites)
+Krita (Sprite Editing)
 
-📷 Imagens do Jogo
+### 📷 Game Screenshots
 
 Menu
-
-
+!(Menu)(https://github.com/PietroRodrigues/Asteroids-X/blob/main/prints/menu.png)
 Gameplay
+!(Level1)(https://github.com/PietroRodrigues/Asteroids-X/blob/main/prints/Level1.png)
 
-🧠 Lógica Principal
+### 🧠 Lógica Principal
 
-A nave rotaciona com as teclas laterais e se move na direção apontada.
+The spaceship rotates with the arrow keys and moves in the current facing direction.
 
-Os tiros são disparados na direção atual da nave.
+Bullets are fired in the ship's current direction.
 
-Asteroides grandes se dividem em dois médios quando destruídos.
+Large asteroids break into two medium ones when destroyed.
 
-Asteroides médios se dividem em dois pequenos.
+Medium asteroids break into two small ones.
 
-Colisões utilizam máscaras (pixel-perfect).
+Collisions use pixel-perfect masking.
 
-Scores são salvos automaticamente em um banco SQLite.
+Scores are automatically saved to a SQLite database.
 
 
-👤 Autor
+### 👤 Autor
 
-Criado por Pietro Rodrigues. Sinta-se à vontade para contribuir, melhorar ou adaptar este projeto.
+Created by Pietro Rodrigues.
+Feel free to contribute, improve, or adapt this project.
