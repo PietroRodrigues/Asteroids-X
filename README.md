@@ -26,12 +26,12 @@ Krita (Sprite Editing)
 
 Menu
 
-!(Menu)(https://raw.githubusercontent.com/PietroRodrigues/Asteroids-X/refs/heads/main/prints/menu.png)
+![Image](https://github.com/user-attachments/assets/f6da0133-8778-4cdb-aabc-9c3e849c1de9)
 
 
 Gameplay
 
-!(Level1)(https://raw.githubusercontent.com/PietroRodrigues/Asteroids-X/refs/heads/main/prints/Level1.png)
+![Image](https://github.com/user-attachments/assets/63460369-1675-431e-81ab-74e902b8beef)
 
 ### 🧠 Lógica Principal
 
