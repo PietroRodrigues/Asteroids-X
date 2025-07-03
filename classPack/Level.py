@@ -20,6 +20,7 @@ class Level:
         self.name = name
         self.game_mode = game_mode
         self.timeout = TIMEOUT_LEVEL
+        self.asteroidsSpauneds = 0
         self.entity_list: list[Entity] = []
         listBgs = EntityFactory.get_entity('Background', level_name=self.name)
         player1 = EntityFactory.get_entity('Player1', (WIN_WIDTH/2 , WIN_HEIGHT/2))
@@ -57,9 +58,9 @@ class Level:
                     if shot:
                         self.entity_list.append(shot)
                     if ent.name == 'Player1':
-                        self.Level_text(30, f"Score: {ent.score}", C_CYAN_NEON, (10, WIN_HEIGHT - 20))
+                        self.Level_text(30, f'Player1 - Health:{ent.health} | Score: {ent.score}', C_RED_NEON, (10, WIN_HEIGHT - 50))
                     if ent.name == 'Player2':
-                        self.Level_text(30, f"Score: {ent.score}", C_CYAN_NEON, (WIN_WIDTH - 150, WIN_HEIGHT - 20))
+                        self.Level_text(30, f'Player2 - Health:{ent.health} | Score: {ent.score}', C_CYAN_NEON, (10, WIN_HEIGHT - 20))
                 elif isinstance(ent, Bullet):
                     ent.move()
                     ent.draw(self.window)
@@ -73,19 +74,22 @@ class Level:
                     pygame.quit()
                     sys.exit()
                     
-                if event.type == EVENT_ASTEROIDS:                    
-                    asteroid = EntityFactory.get_entity('Asteroid')
-                    if isinstance(asteroid, Asteroid):
-                        self.entity_list.append(asteroid)
+                if event.type == EVENT_ASTEROIDS:
+                    self.asteroidsSpauneds += 1
+                    if self.asteroidsSpauneds <= ASTEROIDS_LIMIT[self.name]:                                        
+                        asteroid = EntityFactory.get_entity('Asteroid',sizeAsteroid='Large')
+                        if isinstance(asteroid, Asteroid):
+                            self.entity_list.append(asteroid)
+                
+                for ent in self.entity_list:
+                    if isinstance(ent, (Player)) and ent.name == 'Player1':
+                            player_score[0] = ent.score
+                    if isinstance(ent, (Player)) and ent.name == 'Player2':
+                            player_score[1] = ent.score
 
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STAP
                     if(self.timeout <= 0):
-                        for ent in self.entity_list:
-                            if isinstance(ent, (Player)) and ent.name == 'Player1':
-                                    player_score[0] = ent.score
-                            if isinstance(ent, (Player)) and ent.name == 'Player2':
-                                    player_score[1] = ent.score
                         return True
 
                 found_player = False
@@ -96,9 +100,9 @@ class Level:
                 if not found_player:
                     return False
 
-            self.Level_text(18, f'{self.name} - Timeout : {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
-            self.Level_text(18, f'FPS: {clock.get_fps():.0f}', C_WHITE, (10, 35))
-            self.Level_text(18, f'Entidades: {len(self.entity_list)}', C_WHITE, (10, 20))
+            self.Level_text(18, f'{self.name} - Timeout : {self.timeout / 1000:.1f}s', C_WHITE, (10, 10))
+            self.Level_text(18, f'FPS: {clock.get_fps():.0f}', C_WHITE, (WIN_WIDTH/2, 10))
+            self.Level_text(18, f'Entidades: {len(self.entity_list)}', C_WHITE, (WIN_WIDTH - 120, 10))
 
             pygame.display.flip()
 

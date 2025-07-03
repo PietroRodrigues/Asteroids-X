@@ -8,7 +8,7 @@ class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name,'player',position, (60, 60))
         self.health = ENTITY_HEALTH[self.name]
-        self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
+        self.shoot_delay = 1
         self.score = 0
         self.angle = 0                 
         self.speed = 0.0             

@@ -3,6 +3,7 @@ from classPack.Asteroid import Asteroid
 from classPack.Bullet import Bullet
 from classPack.Entity import Entity
 from classPack.Player import Player
+from classPack.EntityFactory import EntityFactory
 
 class EntityMediator:
     
@@ -84,6 +85,23 @@ class EntityMediator:
             if isinstance(ent, (Player, Asteroid)):
                 if ent.health <= 0:
                     if isinstance(ent, Asteroid):
+                        if ent.name == 'AsteroidLarge':
+                            direction =  ent.direction
+                            pos = ent.rect.centerx, ent.rect.centery
+                            asteroid1 = EntityFactory.get_entity('Asteroid', sizeAsteroid='Medium', position=pos, dir45=45, direction=direction)
+                            asteroid2 = EntityFactory.get_entity('Asteroid', sizeAsteroid='Medium', position=pos, dir45=-45, direction=direction)
+                            if isinstance(asteroid1, Asteroid) and isinstance(asteroid2, Asteroid):
+                                entity_list.append(asteroid1)
+                                entity_list.append(asteroid2)
+                        if ent.name == 'AsteroidMedium':
+                            direction = ent.direction
+                            pos = ent.rect.centerx, ent.rect.centery
+                            asteroid1 = EntityFactory.get_entity('Asteroid', sizeAsteroid='Small', position=pos, dir45=45, direction=direction)
+                            asteroid2 = EntityFactory.get_entity('Asteroid', sizeAsteroid='Small', position=pos, dir45=-45, direction=direction)
+                            if isinstance(asteroid1, Asteroid) and isinstance(asteroid2, Asteroid):
+                                entity_list.append(asteroid1)
+                                entity_list.append(asteroid2)
+    
                         EntityMediator.__give_score(ent, entity_list)
                     to_remove.append(ent)
 

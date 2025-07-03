@@ -33,18 +33,23 @@ ENTITY_SPEED = {
     "AsteroidSmall": 3,
 }
 ENTITY_HEALTH = {
-    "Player1": 100,
-    "Player2": 100,
+    "Player1": 500,
+    "Player2": 500,
     "AsteroidLarge": 10,
     "AsteroidMedium": 10,
     "AsteroidSmall": 10,
 }
 
-TIMEOUT_LEVEL = 10000  # 100000 #100 seconds
+TIMEOUT_LEVEL = 100000  #100 seconds
 EVENT_TIMEOUT = USEREVENT + 2
 TIMEOUT_STAP = 100
 EVENT_ASTEROIDS = USEREVENT + 1
-ASTEROIDS_SPAWN_RATE = 2000  # milliseconds
+ASTEROIDS_SPAWN_RATE = 6000  # milliseconds
+
+ASTEROIDS_LIMIT = {
+    "Level1": 10,
+    "Level2": 15
+}
 
 PLAYER_KEY_UP = {
     "Player1": K_w,
@@ -69,16 +74,16 @@ PLAYER_KEY_SHOOT = {
 }
 
 ENTITY_SHOOT_DELAY = {
-    "Player1": 20,
-    "Player2": 20,
+    "Player1": 30,
+    "Player2": 30,
 }
 
 ENTITY_DAMAGE = {
     "bulletPlayer1": 10,
     "bulletPlayer2": 10,
-    "AsteroidLarge": 100,
+    "AsteroidLarge": 500,
     "AsteroidMedium": 100,
-    "AsteroidSmall": 100,
+    "AsteroidSmall": 20,
 }
 
 
@@ -95,19 +100,19 @@ VOLUME = {
 
 SCORE_POS = {
     "title": (WIN_WIDTH / 2, 100),
-    "score": (WIN_WIDTH / 2, 120),
-    "label": (WIN_WIDTH / 2, 200),
-    "name": (WIN_WIDTH / 2, 220),
-    0: (WIN_WIDTH / 2, 230),
-    1: (WIN_WIDTH / 2, 260),
-    2: (WIN_WIDTH / 2, 290),
-    3: (WIN_WIDTH / 2, 320),
-    4: (WIN_WIDTH / 2, 350),
-    5: (WIN_WIDTH / 2, 380),
-    6: (WIN_WIDTH / 2, 410),
-    7: (WIN_WIDTH / 2, 440),
-    8: (WIN_WIDTH / 2, 470),
-    9: (WIN_WIDTH / 2, 500),
-    
+    "score": (WIN_WIDTH / 2, 200),
+    "label": (WIN_WIDTH / 2, 260),
+    "name": (WIN_WIDTH / 2, WIN_HEIGHT / 2 + 100),
+    0: (WIN_WIDTH / 2, 320),
+    1: (WIN_WIDTH / 2, 350),
+    2: (WIN_WIDTH / 2, 380),
+    3: (WIN_WIDTH / 2, 410),
+    4: (WIN_WIDTH / 2, 440),
+    5: (WIN_WIDTH / 2, 470),
+    6: (WIN_WIDTH / 2, 500),
+    7: (WIN_WIDTH / 2, 530),
+    8: (WIN_WIDTH / 2, 560),
+    9: (WIN_WIDTH / 2, 590)
+
     
 }

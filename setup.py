@@ -5,7 +5,7 @@ import sys
 root = os.path.dirname(os.path.abspath(__file__))
 main_script = os.path.join(root, "main.py")
 
-all_forder = ["Class", "asset"]
+all_forder = ["classPack", "Assets"]
 
 base = None
 if sys.platform == "win32":

@@ -21,8 +21,8 @@ class Score:
            self.entity_list.extend(listBgs)
 
     def save(self, game_mode: str, player_score: list[int]):
-        pygame.mixer_music.load(os.path.join("Assets", "sondes", "Score.mp3"))
-        pygame.mixer_music.set_volume(VOLUME['music']+1)
+        pygame.mixer_music.load(os.path.join("Assets", "sondes", "Menu.mp3"))
+        pygame.mixer_music.set_volume(VOLUME['music'])
         pygame.mixer_music.play(-1)
         db_proxy = DBProxy("./DBScore.db")
         name = ''
@@ -32,9 +32,9 @@ class Score:
                 bgEntity.move()
                 self.window.blit(bgEntity.surf, bgEntity.rect)
             
-            self.score_text(text_size=48, text="YOU WIN!!",text_color= C_CYAN_NEON, text_center_pos=SCORE_POS["title"])
+            self.score_text(text_size=120, text="YOU WIN!!",text_color= C_CYAN_NEON, text_center_pos=SCORE_POS["title"])
             if game_mode == MENU_OPTION[0]:
-                text = 'Enter yor name (3 characters):'
+                text = 'Enter your name (3 characters):'
                 score = player_score[0]
             elif game_mode == MENU_OPTION[1]:
                 score = (player_score[0] + player_score[1]) / 2
@@ -42,16 +42,16 @@ class Score:
             elif game_mode == MENU_OPTION[2]:
                 score = max(player_score)
                 if player_score[0] > player_score[1]:
-                    text = 'Player 1 enter yor name (3 characters):'
+                    text = 'Player 1 enter your name (3 characters):'
                 elif player_score[1] > player_score[0]:
-                    text = 'Player 2 enter yor name (3 characters):'
+                    text = 'Player 2 enter your name(3 characters):'
                 else:
                     text = 'Draw'
 
-            self.score_text(text_size=20, text=text, text_color=C_CYAN_NEON, text_center_pos=SCORE_POS["label"])
             if text != 'Draw':
-                self.score_text(text_size=32, text=f'Score: {str(score)}', text_color=C_CYAN_NEON, text_center_pos=SCORE_POS["score"])
+                self.score_text(text_size=62, text=f'Score: {str(score)}', text_color=C_RED_NEON, text_center_pos=SCORE_POS["score"])
             
+            self.score_text(text_size=42, text=text, text_color=C_PURPLE_ELECTRIC, text_center_pos=SCORE_POS["label"])
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -59,9 +59,10 @@ class Score:
                     sys.exit()
 
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN and len(name) >= 1 and score > 0 and text != 'Draw':
-                        db_proxy.save({'name': name, 'score': score, 'date': get_formatted_date()})
-                        self.show()
+                    if event.key == pygame.K_RETURN and len(name) >= 1:
+                        if (score > 0 and text != 'Draw'):
+                            db_proxy.save({'name': name, 'score': score, 'date': get_formatted_date()})
+                            self.show()
                         return
                     elif event.key == pygame.K_BACKSPACE:
                         name = name[:-1]
@@ -69,13 +70,13 @@ class Score:
                         if len(name) < 3 and event.unicode.isalpha():
                             name += event.unicode
 
-            self.score_text(text_size=28, text=name, text_color=C_CYAN_NEON, text_center_pos=SCORE_POS["name"])
+            self.score_text(text_size=120, text=name, text_color=C_CYAN_NEON, text_center_pos=SCORE_POS["name"])
             
             pygame.display.flip()
 
     def show(self):
-        pygame.mixer_music.load(os.path.join("Assets", "sondes", "Score.mp3"))
-        pygame.mixer_music.set_volume(VOLUME['music'] + 1)
+        pygame.mixer_music.load(os.path.join("Assets", "sondes", "Menu.mp3"))
+        pygame.mixer_music.set_volume(VOLUME['music'])
         pygame.mixer_music.play(-1)
 
         db_proxy = DBProxy("./DBScore.db")
