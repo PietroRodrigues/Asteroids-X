@@ -12,10 +12,11 @@ class Entity(ABC):
         if size:
             self.surf = pygame.transform.scale(self.surf, size)
 
-        self.rect = self.surf.get_rect(left=position[0], top=position[1])
+        self.mask = pygame.mask.from_surface(self.surf)
+        self.rect = self.surf.get_rect(center=position)
         self.pos_x = float(self.rect.x)
         self.pos_y = float(self.rect.y)
         
     @abstractmethod
-    def move(self, speed:tuple):
+    def move(self):
         pass

@@ -3,8 +3,8 @@
 from pygame import K_UP, K_DOWN, K_LEFT, K_RIGHT, K_w, K_a, K_s, K_d, K_SPACE, K_RETURN, USEREVENT
 
 # W
-WIN_WIDTH = 800
-WIN_HEIGHT = 800
+WIN_WIDTH = 720
+WIN_HEIGHT = 720
 
 # C
 C_WHITE = (255, 255, 255)
@@ -24,22 +24,27 @@ ENTITY_SPEED = {
     "bkgd_0": 0.3,
     "bkgd_1": 0.4,
     "bkgd_2": 0.6,
-    "Player1": 5,
-    "Player2": 5,
-    "Bullet": 10,
-    "Asteroid": 2,
+    "Player1": 3,
+    "Player2": 3,
+    "bulletPlayer1": 8,
+    "bulletPlayer2": 8,
+    "AsteroidLarge": 1,
+    "AsteroidMedium": 2,
+    "AsteroidSmall": 3,
 }
 ENTITY_HEALTH = {
     "Player1": 100,
     "Player2": 100,
-    "Asteroid": 10,
+    "AsteroidLarge": 10,
+    "AsteroidMedium": 10,
+    "AsteroidSmall": 10,
 }
 
-# TIMEOUT_LEVEL = 10000  # 100000 #100 seconds
-# EVENT_TIMEOUT = USEREVENT + 2
-# TIMEOUT_STAP = 100
-# EVENT_ENEMY = USEREVENT + 1
-# ENEMY_SPAWN_RATE = 2000  # milliseconds
+TIMEOUT_LEVEL = 10000  # 100000 #100 seconds
+EVENT_TIMEOUT = USEREVENT + 2
+TIMEOUT_STAP = 100
+EVENT_ASTEROIDS = USEREVENT + 1
+ASTEROIDS_SPAWN_RATE = 2000  # milliseconds
 
 PLAYER_KEY_UP = {
     "Player1": K_w,
@@ -69,12 +74,18 @@ ENTITY_SHOOT_DELAY = {
 }
 
 ENTITY_DAMAGE = {
-    "Bullet": 10,
-    "Asteroid": 100,
+    "bulletPlayer1": 10,
+    "bulletPlayer2": 10,
+    "AsteroidLarge": 100,
+    "AsteroidMedium": 100,
+    "AsteroidSmall": 100,
 }
 
+
 ENTITY_SCORE = {
-    "Asteroid": 100
+    "AsteroidLarge": 100,
+    "AsteroidMedium": 100,
+    "AsteroidSmall": 100,
 }
 
 VOLUME = {
@@ -82,19 +93,21 @@ VOLUME = {
     "sound": 0.1
 }
 
-# SCORE_POS = {
-#     "title": (WIN_WIDTH / 2, 50),
-#     "score": (WIN_WIDTH / 2, 90),
-#     "label": (WIN_WIDTH / 2, 110),
-#     "name": (WIN_WIDTH / 2, 130),
-#     0: (WIN_WIDTH / 2, 130),
-#     1: (WIN_WIDTH / 2, 150),
-#     2: (WIN_WIDTH / 2, 170),
-#     3: (WIN_WIDTH / 2, 190),
-#     4: (WIN_WIDTH / 2, 210),
-#     5: (WIN_WIDTH / 2, 230),
-#     6: (WIN_WIDTH / 2, 250),
-#     7: (WIN_WIDTH / 2, 270),
-#     8: (WIN_WIDTH / 2, 290),
-#     9: (WIN_WIDTH / 2, 310),
-# }
+SCORE_POS = {
+    "title": (WIN_WIDTH / 2, 100),
+    "score": (WIN_WIDTH / 2, 120),
+    "label": (WIN_WIDTH / 2, 200),
+    "name": (WIN_WIDTH / 2, 220),
+    0: (WIN_WIDTH / 2, 230),
+    1: (WIN_WIDTH / 2, 260),
+    2: (WIN_WIDTH / 2, 290),
+    3: (WIN_WIDTH / 2, 320),
+    4: (WIN_WIDTH / 2, 350),
+    5: (WIN_WIDTH / 2, 380),
+    6: (WIN_WIDTH / 2, 410),
+    7: (WIN_WIDTH / 2, 440),
+    8: (WIN_WIDTH / 2, 470),
+    9: (WIN_WIDTH / 2, 500),
+    
+    
+}

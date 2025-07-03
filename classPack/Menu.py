@@ -25,18 +25,18 @@ class Menu:
 
         while True:            
             for bgEntity in self.entity_list:
-                bgEntity.move((1,1))
+                bgEntity.move()
                 self.window.blit(bgEntity.surf, bgEntity.rect)
 
-            self.Menu_text(370, "X", C_RED_NEON, (WIN_WIDTH/2, 250))
-            self.Menu_text(150, "ASTEROIDS", C_CYAN_NEON, (WIN_WIDTH/2, 290))
-            self.Menu_text(30, "DEMO", C_CYAN_NEON, (WIN_WIDTH/2, 340))
+            self.Menu_text(370, "X", C_RED_NEON, (WIN_WIDTH/2, 230))
+            self.Menu_text(140, "ASTEROIDS", C_CYAN_NEON, (WIN_WIDTH/2, 270))
+            self.Menu_text(20, "DEMO", C_CYAN_NEON, (WIN_WIDTH/2, 320))
             
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.Menu_text(32, MENU_OPTION[i], C_PURPLE_ELECTRIC, (WIN_WIDTH/2, 500 + i * 50))
+                    self.Menu_text(32, MENU_OPTION[i], C_PURPLE_ELECTRIC, (WIN_WIDTH/2, 450 + i * 30))
                 else:
-                    self.Menu_text(32, MENU_OPTION[i], C_CYAN_NEON, (WIN_WIDTH/2, 500 + i * 50))
+                    self.Menu_text(28, MENU_OPTION[i], C_CYAN_NEON, (WIN_WIDTH/2, 450 + i * 30))
 
 
             for event in pygame.event.get():
@@ -49,8 +49,8 @@ class Menu:
                     elif event.key == pygame.K_DOWN:
                         menu_option = (menu_option + 1) % len(MENU_OPTION)
                     elif event.key == pygame.K_RETURN:
-                        return menu_option
-            
+                        return MENU_OPTION[menu_option]
+                                
             pygame.display.flip()
             
     def Menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
