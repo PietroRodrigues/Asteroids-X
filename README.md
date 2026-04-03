@@ -33,7 +33,7 @@ Gameplay
 
 ![Image](https://github.com/user-attachments/assets/63460369-1675-431e-81ab-74e902b8beef)
 
-### 🧠 Lógic
+### 🧠 Logic
 
 The spaceship rotates with the arrow keys and moves in the current facing direction.
 
