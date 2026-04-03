@@ -12,7 +12,7 @@ Survive without crashing
 Score as high as possible and make it into the TOP 10
 
 
-### 🛠️ Tecnologias Utilizadas
+### 🛠️ Technologies Used
 
 Python 3.x
 
@@ -33,7 +33,7 @@ Gameplay
 
 ![Image](https://github.com/user-attachments/assets/63460369-1675-431e-81ab-74e902b8beef)
 
-### 🧠 Lógica Principal
+### 🧠 Lógic
 
 The spaceship rotates with the arrow keys and moves in the current facing direction.
 
@@ -48,7 +48,7 @@ Collisions use pixel-perfect masking.
 Scores are automatically saved to a SQLite database.
 
 
-### 👤 Autor
+### 👤 author
 
 Created by Pietro Rodrigues.
 Feel free to contribute, improve, or adapt this project.
